@@ -5,7 +5,7 @@ namespace MB3D_Big_Render_Stitcher
 {
     public partial class Form1 : Form
     {
-        List<ImageTIle> _imageTiles = new List<ImageTIle>();
+        List<ImageTile> _imageTiles = new List<ImageTile>();
         string _stitchName = "";
         int _stitchWidth = 0, _stitchHeight = 0, _tileWidth = 0, _tileHeight = 0, _maxX = 0, _maxY = 0;
         bool _stitchInfoReady = false;
@@ -14,11 +14,6 @@ namespace MB3D_Big_Render_Stitcher
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void btnScan_Click(object sender, EventArgs e)
-        {
-            ScanFiles();
         }
 
         private void btnGo_Click(object sender, EventArgs e)
@@ -104,15 +99,15 @@ namespace MB3D_Big_Render_Stitcher
             Log("Processing complete. Ready to Go!");
         }
 
-        List<ImageTIle> GetImageTiles(string directory)
+        List<ImageTile> GetImageTiles(string directory)
         {
-            List<ImageTIle> tiles = new List<ImageTIle>();
+            List<ImageTile> tiles = new List<ImageTile>();
             string[] files = Directory.GetFiles(directory, "*.png");
             foreach (string file in files)
             {
                 if (!file.Contains("ZBuf")) // don't do ZBuf files (yet)
                 {
-                    ImageTIle imageTIle = new ImageTIle();
+                    ImageTile imageTIle = new ImageTile();
 
                     imageTIle.FilePath = Path.GetFullPath(file);
                     string justFileName = Path.GetFileNameWithoutExtension(file);

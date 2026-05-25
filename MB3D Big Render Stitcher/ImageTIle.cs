@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MB3D_Big_Render_Stitcher
 {
-    internal class ImageTIle
+    internal class ImageTile
     {
         public string FilePath { get; set; }
         public int X { get; set; }
